@@ -66,7 +66,8 @@ public class FeedController(IFeedRepository repo, IHubContext<FeedHub> hub) : Co
             Output = dto.Output
         };
         await repo.AddActionAsync(threadId, action);
-        await hub.Clients.All.SendAsync("feed:action", new FeedActionDto(action.Id, action.Timestamp, action.Type.ToString().ToLower(), action.Message, action.Model, action.TokensIn, action.TokensOut, action.Duration, action.Command, action.Output));
+        var actionDto = new FeedActionDto(action.Id, action.Timestamp, action.Type.ToString().ToLower(), action.Message, action.Model, action.TokensIn, action.TokensOut, action.Duration, action.Command, action.Output);
+        await hub.Clients.All.SendAsync("feed:action", new { threadId, action = actionDto });
         return NoContent();
     }
 }
