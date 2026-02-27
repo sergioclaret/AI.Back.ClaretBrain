@@ -6,5 +6,7 @@ services:
       - ASPNETCORE_URLS=http://0.0.0.0:61008
       - ConnectionStrings__Default=Host=host.docker.internal;Port=5432;Database=claret;Username=claret;Password=5+7kL6+ncANPb1jcG/ZcD9F1FViuNifx
       - Auth__Token=CHANGE_ME
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - "61008:61008"
