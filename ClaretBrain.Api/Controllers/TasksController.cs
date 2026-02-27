@@ -30,7 +30,7 @@ public class TasksController(ITaskRepository repo) : ControllerBase
             Description = dto.Description,
             Agent = dto.Agent,
             Model = dto.Model,
-            Status = Enum.Parse<TaskStatus>(dto.Status, true),
+            Status = Enum.Parse<ClaretBrain.Domain.Enums.TaskStatus>(dto.Status, true),
             Priority = Enum.Parse<Priority>(dto.Priority, true),
             CreatedAt = dto.CreatedAt
         };
@@ -49,7 +49,7 @@ public class TasksController(ITaskRepository repo) : ControllerBase
         task.Description = dto.Description;
         task.Agent = dto.Agent;
         task.Model = dto.Model;
-        task.Status = Enum.Parse<TaskStatus>(dto.Status, true);
+        task.Status = Enum.Parse<ClaretBrain.Domain.Enums.TaskStatus>(dto.Status, true);
         task.Priority = Enum.Parse<Priority>(dto.Priority, true);
         await repo.UpdateAsync(task);
         return NoContent();

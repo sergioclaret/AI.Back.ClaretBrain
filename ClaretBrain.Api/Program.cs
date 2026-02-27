@@ -1,3 +1,4 @@
+using ClaretBrain.Api;
 using ClaretBrain.Api.Filters;
 using ClaretBrain.Api.Hubs;
 using ClaretBrain.Application.Interfaces;
