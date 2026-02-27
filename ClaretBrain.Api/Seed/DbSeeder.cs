@@ -1,5 +1,6 @@
 using ClaretBrain.Domain.Entities;
 using ClaretBrain.Domain.Enums;
+using TaskStatusEnum = ClaretBrain.Domain.Enums.TaskStatus;
 using ClaretBrain.Infrastructure.Persistence;
 
 namespace ClaretBrain.Api.Seed;
@@ -21,12 +22,12 @@ public static class DbSeeder
 
         db.Tasks.AddRange(new[]
         {
-            new KanbanTask { Title = "Analisar dataset de vendas Q4", Description = "Processar e analisar o dataset completo de vendas do quarto trimestre, identificando tendências, anomalias e oportunidades de crescimento.", Agent = "Agent-Alpha", Model = "GPT-4o", Status = TaskStatus.Todo, Priority = Priority.Critical },
-            new KanbanTask { Title = "Gerar relatório de sentimento", Description = "Analisar sentimento de todas as reviews de clientes recebidas no último mês e gerar relatório consolidado com insights.", Agent = "Agent-Beta", Model = "Claude 3.5", Status = TaskStatus.Todo, Priority = Priority.High },
-            new KanbanTask { Title = "Classificar tickets de suporte", Description = "Classificar automaticamente os tickets abertos por categoria, urgência e departamento responsável.", Agent = "Agent-Gamma", Model = "Gemini Pro", Status = TaskStatus.Doing, Priority = Priority.Critical },
-            new KanbanTask { Title = "Extrair entidades de contratos", Description = "Utilizar NER para extrair entidades relevantes (datas, valores, partes envolvidas) de contratos digitalizados.", Agent = "Agent-Alpha", Model = "GPT-4o", Status = TaskStatus.Doing, Priority = Priority.Low },
-            new KanbanTask { Title = "Resumir transcrições de reuniões", Description = "Gerar resumos executivos das transcrições de reuniões da última semana, destacando decisões e action items.", Agent = "Agent-Delta", Model = "Claude 3.5", Status = TaskStatus.Done, Priority = Priority.Medium },
-            new KanbanTask { Title = "Traduzir documentação técnica", Description = "Traduzir a documentação técnica do produto para inglês, espanhol e francês mantendo terminologia consistente.", Agent = "Agent-Beta", Model = "GPT-4o", Status = TaskStatus.Done, Priority = Priority.Trivial },
+            new KanbanTask { Title = "Analisar dataset de vendas Q4", Description = "Processar e analisar o dataset completo de vendas do quarto trimestre, identificando tendências, anomalias e oportunidades de crescimento.", Agent = "Agent-Alpha", Model = "GPT-4o", Status = TaskStatusEnum.Todo, Priority = Priority.Critical },
+            new KanbanTask { Title = "Gerar relatório de sentimento", Description = "Analisar sentimento de todas as reviews de clientes recebidas no último mês e gerar relatório consolidado com insights.", Agent = "Agent-Beta", Model = "Claude 3.5", Status = TaskStatusEnum.Todo, Priority = Priority.High },
+            new KanbanTask { Title = "Classificar tickets de suporte", Description = "Classificar automaticamente os tickets abertos por categoria, urgência e departamento responsável.", Agent = "Agent-Gamma", Model = "Gemini Pro", Status = TaskStatusEnum.Doing, Priority = Priority.Critical },
+            new KanbanTask { Title = "Extrair entidades de contratos", Description = "Utilizar NER para extrair entidades relevantes (datas, valores, partes envolvidas) de contratos digitalizados.", Agent = "Agent-Alpha", Model = "GPT-4o", Status = TaskStatusEnum.Doing, Priority = Priority.Low },
+            new KanbanTask { Title = "Resumir transcrições de reuniões", Description = "Gerar resumos executivos das transcrições de reuniões da última semana, destacando decisões e action items.", Agent = "Agent-Delta", Model = "Claude 3.5", Status = TaskStatusEnum.Done, Priority = Priority.Medium },
+            new KanbanTask { Title = "Traduzir documentação técnica", Description = "Traduzir a documentação técnica do produto para inglês, espanhol e francês mantendo terminologia consistente.", Agent = "Agent-Beta", Model = "GPT-4o", Status = TaskStatusEnum.Done, Priority = Priority.Trivial },
         });
 
         db.FeedThreads.Add(new FeedThread
